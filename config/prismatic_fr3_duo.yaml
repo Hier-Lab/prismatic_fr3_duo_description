@@ -1,0 +1,23 @@
+# Default parameters for urdf/prismatic_fr3_duo.urdf.xacro.
+# Vector values are strings because URDF origin attributes use space-separated values.
+robot_types:
+  - fr3
+  - fr3
+no_prefix: false
+hand: true
+ee_id: franka_hand
+special_connection: ""
+xyz_ee: "0 0 0"
+rpy_ee: "0 0 -0.7853981633974483"  # -pi / 4
+tcp_xyz: "0 0 0.1034"
+tcp_rpy: "0 0 1.5707963267948966"  # +pi / 2 around Z
+safety_distance: 0.01
+with_sc: true
+gazebo: false
+with_accelerometers: false
+description_pkg: franka_description
+arm_prefixes:
+  - left
+  - right
+xyz: "0 0 0"
+rpy: "0 0 0"

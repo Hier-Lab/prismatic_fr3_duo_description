@@ -1,0 +1,10 @@
+base_slider_joint:
+  limit:
+    lower:      -0.5
+    upper:       0.5
+    velocity:    0.2
+    effort:     1000
+  position_based_velocity_limits:
+    velocity_offset: 0.2
+    deceleration_limit: 6.0
+

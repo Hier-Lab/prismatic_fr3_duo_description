@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="prismatic_fr3_duo">
+
+  <xacro:include filename="$(find franka_description)/robots/common/group_definition.xacro"/>
+  <xacro:include filename="$(find franka_description)/end_effectors/franka_hand/franka_hand.srdf.xacro"/>
+
+  <xacro:arg name="robot_types" default="['fr3','fr3']"/>
+  <xacro:property name="robot_types_list" value="${$(arg robot_types)}"/>
+  <xacro:arg name="arm_prefixes" default="['left','right']"/>
+  <xacro:property name="arm_prefixes_list" value="${$(arg arm_prefixes)}"/>
+  <xacro:arg name="hand" default="true"/>
+  <xacro:arg name="ee_id" default="franka_hand"/>
+  <xacro:property name="has_franka_hand"
+                  value="${'$(arg hand)' == 'true' and '$(arg ee_id)' == 'franka_hand'}"/>
+
+  <virtual_joint name="world_joint" type="fixed"
+                 parent_frame="world" child_link="rail_link"/>
+
+  <group name="dual_arm_system">
+    <joint name="base_slider_joint"/>
+    <group name="left_fr3_arm"/>
+    <group name="right_fr3_arm"/>
+  </group>
+
+  <xacro:macro name="define_arm" params="index">
+    <xacro:property name="short_prefix" value="${arm_prefixes_list[index] + '_'}"/>
+    <xacro:property name="full_prefix"
+                    value="${short_prefix + robot_types_list[index] + '_'}"/>
+    <xacro:property name="tip_link"
+                    value="${full_prefix + 'hand_tcp' if has_franka_hand else full_prefix + 'link8'}"/>
+
+    <!-- This upstream macro supplies the authoritative FR3 "ready" state. -->
+    <xacro:group_definition
+      group_name="${full_prefix}arm"
+      prefix="${full_prefix}"
+      tip_link="${tip_link}"/>
+
+    <xacro:if value="${has_franka_hand}">
+      <xacro:franka_hand_srdf prefix="${full_prefix}"/>
+    </xacro:if>
+
+    <disable_collisions link1="base_link" link2="${full_prefix}link0" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="${full_prefix}link1" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link0" link2="${full_prefix}link1" reason="Adjacent"/>
+    <disable_collisions link1="${full_prefix}link0" link2="${full_prefix}link2" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link0" link2="${full_prefix}link3" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link0" link2="${full_prefix}link4" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link1" link2="${full_prefix}link2" reason="Adjacent"/>
+    <disable_collisions link1="${full_prefix}link1" link2="${full_prefix}link3" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link1" link2="${full_prefix}link4" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link2" link2="${full_prefix}link3" reason="Adjacent"/>
+    <disable_collisions link1="${full_prefix}link2" link2="${full_prefix}link4" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link2" link2="${full_prefix}link6" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link3" link2="${full_prefix}link4" reason="Adjacent"/>
+    <disable_collisions link1="${full_prefix}link3" link2="${full_prefix}link5" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link3" link2="${full_prefix}link6" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link3" link2="${full_prefix}link7" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link4" link2="${full_prefix}link5" reason="Adjacent"/>
+    <disable_collisions link1="${full_prefix}link4" link2="${full_prefix}link6" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link4" link2="${full_prefix}link7" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link4" link2="${full_prefix}link8" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link5" link2="${full_prefix}link6" reason="Adjacent"/>
+    <disable_collisions link1="${full_prefix}link5" link2="${full_prefix}link7" reason="Never"/>
+    <disable_collisions link1="${full_prefix}link6" link2="${full_prefix}link7" reason="Adjacent"/>
+    <disable_collisions link1="${full_prefix}link6" link2="${full_prefix}link8" reason="Default"/>
+    <disable_collisions link1="${full_prefix}link7" link2="${full_prefix}link8" reason="Adjacent"/>
+  </xacro:macro>
+
+  <disable_collisions link1="rail_link" link2="base_link" reason="Adjacent"/>
+  <xacro:define_arm index="0"/>
+  <xacro:define_arm index="1"/>
+
+</robot>

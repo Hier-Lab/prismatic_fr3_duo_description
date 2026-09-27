@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="prismatic_fr3_duo">
+
+  <xacro:include filename="./prismatic_fr3_duo.xacro"/>
+
+  <xacro:arg name="config_file" default="../config/prismatic_fr3_duo.yaml"/>
+  <xacro:property name="params" value="${xacro.load_yaml('$(arg config_file)')}"/>
+
+  <xacro:if value="${params['gazebo']}">
+    <link name="world"/>
+    <joint name="world_joint" type="fixed">
+      <origin xyz="${params['xyz']}" rpy="${params['rpy']}"/>
+      <parent link="world"/>
+      <child link="rail_link"/>
+    </joint>
+  </xacro:if>
+
+  <xacro:prismatic_fr3_duo
+    robot_types="${params['robot_types']}"
+    hand="${params['hand']}"
+    ee_id="${params['ee_id']}"
+    special_connection="${params['special_connection']}"
+    xyz_ee="${params['xyz_ee']}"
+    rpy_ee="${params['rpy_ee']}"
+    tcp_xyz="${params['tcp_xyz']}"
+    tcp_rpy="${params['tcp_rpy']}"
+    safety_distance="${params['safety_distance']}"
+    with_sc="${params['with_sc']}"
+    gazebo="${params['gazebo']}"
+    description_pkg="${params['description_pkg']}"
+    arm_prefixes="${params['arm_prefixes']}"
+    no_prefix="${params['no_prefix']}"/>
+
+</robot>

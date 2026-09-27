@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find franka_description)/robots/common/franka_robot.xacro"/>
+  <xacro:include filename="./base_system.xacro"/>
+
+  <xacro:macro
+    name="prismatic_fr3_duo"
+    params="robot_types hand ee_id special_connection xyz_ee rpy_ee tcp_xyz tcp_rpy
+            safety_distance with_sc gazebo description_pkg arm_prefixes no_prefix:=false">
+
+    <xacro:property name="robot_types_list" value="${robot_types}"/>
+    <xacro:property name="arm_prefixes_list" value="${arm_prefixes}"/>
+    <xacro:property name="mount_kinematics" value="${xacro.load_yaml('./kinematics.yaml')}"/>
+
+    <xacro:base_system name="prismatic_fr3_duo"/>
+
+    <xacro:macro name="spawn_arm" params="index">
+      <xacro:property name="arm_name" value="${arm_prefixes_list[index]}"/>
+      <xacro:property name="arm_prefix" value="${arm_name + '_' if arm_name else ''}"/>
+      <xacro:property name="robot_type" value="${robot_types_list[index]}"/>
+      <xacro:property name="mount" value="${mount_kinematics['fr3_duo_mount_' + arm_name]['kinematic']}"/>
+
+      <xacro:franka_robot
+        robot_type="${robot_type}"
+        gazebo="${gazebo}"
+        hand="${hand}"
+        ee_id="${ee_id}"
+        special_connection="${special_connection}"
+        xyz_ee="${xyz_ee}"
+        rpy_ee="${rpy_ee}"
+        tcp_xyz="${tcp_xyz}"
+        tcp_rpy="${tcp_rpy}"
+        safety_distance="${safety_distance}"
+        with_sc="${with_sc}"
+        no_prefix="${no_prefix}"
+        arm_prefix="${arm_prefix}"
+        description_pkg="${description_pkg}"
+        connected_to=""/>
+
+      <joint name="${arm_name}_base_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="${arm_prefix}${robot_type}_link0"/>
+        <origin xyz="${mount.x} ${mount.y} ${mount.z}"
+                rpy="${mount.roll} ${mount.pitch} ${mount.yaw}"/>
+      </joint>
+    </xacro:macro>
+
+    <xacro:spawn_arm index="0"/>
+    <xacro:spawn_arm index="1"/>
+  </xacro:macro>
+</robot>

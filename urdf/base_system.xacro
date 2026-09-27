@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find franka_description)/robots/common/utils.xacro"/>
+
+  <xacro:macro name="base_system" params="name">
+    <xacro:property name="inertials" value="${xacro.load_yaml('./inertials.yaml')}"/>
+    <xacro:property name="joint_limits" value="${xacro.load_yaml('./joint_limits.yaml')}"/>
+    <xacro:property name="dynamics" value="${xacro.load_yaml('./dynamics.yaml')}"/>
+    <xacro:property name="kinematics" value="${xacro.load_yaml('./kinematics.yaml')}"/>
+
+    <xacro:property name="rail_inertial" value="${inertials['rail_link']}"/>
+    <link name="rail_link">
+      <!-- <inertial>
+        <origin xyz="${rail_inertial.origin.xyz}" rpy="${rail_inertial.origin.rpy}"/>
+        <mass value="${rail_inertial.mass}"/>
+        <inertia
+          ixx="${rail_inertial.inertia.xx}" ixy="${rail_inertial.inertia.xy}" ixz="${rail_inertial.inertia.xz}"
+          iyy="${rail_inertial.inertia.yy}" iyz="${rail_inertial.inertia.yz}" izz="${rail_inertial.inertia.zz}"/>
+      </inertial> -->
+      <visual>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <geometry><cylinder radius="0.015" length="1.0"/></geometry>
+        <material name="rail_gray"><color rgba="0.25 0.25 0.28 1"/></material>
+      </visual>
+      <!-- <collision>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
+        <geometry><cylinder radius="0.015" length="1.0"/></geometry>
+      </collision> -->
+    </link>
+
+    <xacro:property name="base_inertial" value="${inertials['base_link']}"/>
+    <link name="base_link">
+      <inertial>
+        <origin xyz="${base_inertial.origin.xyz}" rpy="${base_inertial.origin.rpy}"/>
+        <mass value="${base_inertial.mass}"/>
+        <inertia
+          ixx="${base_inertial.inertia.xx}" ixy="${base_inertial.inertia.xy}" ixz="${base_inertial.inertia.xz}"
+          iyy="${base_inertial.inertia.yy}" iyz="${base_inertial.inertia.yz}" izz="${base_inertial.inertia.zz}"/>
+      </inertial>
+      <visual>
+        <!-- <geometry><box size="0.3 1.0 0.05"/></geometry> -->
+        <geometry><box size="0.2 0.2 0.15"/></geometry>
+        <material name="base_gray"><color rgba="0.35 0.35 0.38 1"/></material>
+      </visual>
+      <collision>
+        <!-- <geometry><box size="0.3 1.0 0.05"/></geometry> -->
+        <geometry><box size="0.2 0.2 0.15"/></geometry>
+      </collision>
+    </link>
+
+    <xacro:property name="base_tf" value="${kinematics['base_mounting_point']['kinematic']}"/>
+    <joint name="base_slider_joint" type="prismatic">
+      <parent link="rail_link"/>
+      <child link="base_link"/>
+      <origin xyz="${base_tf.x} ${base_tf.y} ${base_tf.z}"
+              rpy="${base_tf.roll} ${base_tf.pitch} ${base_tf.yaw}"/>
+      <axis xyz="0 1 0"/>
+      <xacro:franka-limits name="base_slider_joint" config="${joint_limits}"/>
+      <xacro:franka-dynamics name="base_slider_joint" config="${dynamics}"/>
+    </joint>
+  </xacro:macro>
+</robot>
