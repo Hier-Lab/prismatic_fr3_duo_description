@@ -7,14 +7,18 @@
         </geometry>
       </visual>
       <collision>
+        <origin xyz="-0.0739 0 0.0245" rpy="0 0 0"/>
         <geometry>
-          <box size="0.12 0.06 0.065"/>
+          <box size="0.1178 0.060 0.0641"/>
         </geometry>
       </collision>
       <inertial>
+        <origin xyz="-0.0739 0 0.0245" rpy="0 0 0"/>
         <mass value="0.05"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+        <inertia
+          ixx="${0.05/12*(0.060*0.060 + 0.0641*0.0641)}" ixy="0" ixz="0"
+          iyy="${0.05/12*(0.1178*0.1178 + 0.0641*0.0641)}" iyz="0"
+          izz="${0.05/12*(0.1178*0.1178 + 0.060*0.060)}"/>
       </inertial>
     </link>
     <joint name="${prefix}camera_mount_joint" type="fixed">

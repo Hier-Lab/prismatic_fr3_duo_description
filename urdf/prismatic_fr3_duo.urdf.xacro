@@ -2,6 +2,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="prismatic_fr3_duo">
 
   <xacro:include filename="./prismatic_fr3_duo.xacro"/>
+  <xacro:include filename="./camera_mount.xacro"/>
+  <xacro:include filename="./soft_gripper_finger.xacro"/>
 
   <xacro:arg name="config_file" default="../config/prismatic_fr3_duo.yaml"/>
   <xacro:property name="params" value="${xacro.load_yaml('$(arg config_file)')}"/>
@@ -30,5 +32,14 @@
     description_pkg="${params['description_pkg']}"
     arm_prefixes="${params['arm_prefixes']}"
     no_prefix="${params['no_prefix']}"/>
+
+
+  <xacro:camera_mount prefix="left_" parent="left_fr3_hand"/>
+  <xacro:camera_mount prefix="right_" parent="right_fr3_hand"/>
+
+  <xacro:soft_gripper_finger suffix="left_fr3_leftfinger" parent="left_fr3_leftfinger"
+    xyz="0.0129 0 0.0362" rpy="3.1420 0 1.5521"/>
+  <xacro:soft_gripper_finger suffix="left_fr3_rightfinger" parent="left_fr3_rightfinger"
+    xyz="0.0129 0 0.0362" rpy="3.1420 0 1.5521"/>
 
 </robot>

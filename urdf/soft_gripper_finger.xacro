@@ -1,0 +1,32 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- xyz/rpy are determined separately per finger due to stl file origin inaccuracy.
+       mass is a placeholder -->
+  <xacro:macro name="soft_gripper_finger" params="suffix parent xyz rpy mass:=0.02">
+    <link name="${suffix}_soft_finger">
+      <visual>
+        <geometry>
+          <mesh filename="package://prismatic_fr3_duo_description/meshes/soft_gripper_finger.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0.020 -0.0129 -0.0617" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.040 0.0258 0.1234"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <origin xyz="0.020 -0.0129 -0.0617" rpy="0 0 0"/>
+        <mass value="${mass}"/>
+        <inertia
+          ixx="${mass/12*(0.0258*0.0258 + 0.1234*0.1234)}" ixy="0" ixz="0"
+          iyy="${mass/12*(0.040*0.040 + 0.1234*0.1234)}" iyz="0"
+          izz="${mass/12*(0.040*0.040 + 0.0258*0.0258)}"/>
+      </inertial>
+    </link>
+    <joint name="${suffix}_soft_finger_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${suffix}_soft_finger"/>
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+    </joint>
+  </xacro:macro>
+</robot>
