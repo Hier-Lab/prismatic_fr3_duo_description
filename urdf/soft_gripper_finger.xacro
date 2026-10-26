@@ -1,32 +1,35 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <!-- xyz/rpy are determined separately per finger due to stl file origin inaccuracy.
-       mass is a placeholder -->
-  <xacro:macro name="soft_gripper_finger" params="suffix parent xyz rpy mass:=0.02">
-    <link name="${suffix}_soft_finger">
+  <xacro:macro name="soft_gripper_finger" params="prefix parent">
+    <link name="${prefix}_soft_finger">
       <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <mesh filename="package://prismatic_fr3_duo_description/meshes/soft_gripper_finger.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </visual>
       <collision>
-        <origin xyz="0.020 -0.0129 -0.0617" rpy="0 0 0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
           <box size="0.040 0.0258 0.1234"/>
         </geometry>
       </collision>
       <inertial>
-        <origin xyz="0.020 -0.0129 -0.0617" rpy="0 0 0"/>
-        <mass value="${mass}"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.02"/>
         <inertia
-          ixx="${mass/12*(0.0258*0.0258 + 0.1234*0.1234)}" ixy="0" ixz="0"
-          iyy="${mass/12*(0.040*0.040 + 0.1234*0.1234)}" iyz="0"
-          izz="${mass/12*(0.040*0.040 + 0.0258*0.0258)}"/>
+          ixx="${0.02/12*(0.0258*0.0258 + 0.1234*0.1234)}" ixy="0" ixz="0"
+          iyy="${0.02/12*(0.040*0.040 + 0.1234*0.1234)}" iyz="0"
+          izz="${0.02/12*(0.040*0.040 + 0.0258*0.0258)}"/>
       </inertial>
     </link>
-    <joint name="${suffix}_soft_finger_joint" type="fixed">
+    <joint name="${prefix}_soft_finger_joint" type="fixed">
       <parent link="${parent}"/>
-      <child link="${suffix}_soft_finger"/>
-      <origin xyz="${xyz}" rpy="${rpy}"/>
+      <child link="${prefix}_soft_finger"/>
+      <!-- xyz: CAD T_hand_to_soft_gripper (0.0, 0.0004066, 0.0849134), measured at finger joints = 0
+           (closed), minus the static hand->finger translation (0, 0, 0.0584) baked into
+           finger_joint1/2's origin (translation subtraction valid since both share R = I).
+           rpy: mesh-to-finger-frame rotation, tuned separately from the CAD translation above. -->
+      <origin xyz="0.0129 0.0004066 0.0265134" rpy="3.1420 0 1.5521"/>
     </joint>
   </xacro:macro>
 </robot>
