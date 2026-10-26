@@ -34,7 +34,7 @@
       <visual>
         <origin xyz="-0.01 0 0.023" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://prismatic_fr3_duo_description/meshes/d405.stl" scale="1 1 1"/>
+          <mesh filename="package://prismatic_fr3_duo_description/meshes/d405.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="d405_original">
           <color rgba="0.996078 0.996078 1 1"/>
