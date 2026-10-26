@@ -5,6 +5,9 @@
         <geometry>
           <mesh filename="package://prismatic_fr3_duo_description/meshes/d405_mount.stl" scale=".001 .001 .001"/>
         </geometry>
+        <material name="mount_black">
+          <color rgba="0.05 0.05 0.05 1"/>
+        </material>
       </visual>
       <collision>
         <origin xyz="-0.0739 0 0.0245" rpy="0 0 0"/>
