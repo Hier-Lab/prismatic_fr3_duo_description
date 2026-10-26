@@ -37,9 +37,9 @@
   <xacro:camera_mount prefix="left_" parent="left_fr3_hand"/>
   <xacro:camera_mount prefix="right_" parent="right_fr3_hand"/>
 
-  <xacro:soft_gripper_finger suffix="left_fr3_leftfinger" parent="left_fr3_leftfinger"
-    xyz="0.0129 0 0.0362" rpy="3.1420 0 1.5521"/>
-  <xacro:soft_gripper_finger suffix="left_fr3_rightfinger" parent="left_fr3_rightfinger"
-    xyz="0.0129 0 0.0362" rpy="3.1420 0 1.5521"/>
+  <xacro:soft_gripper_finger prefix="left_fr3_leftfinger" parent="left_fr3_leftfinger"/>
+  <xacro:soft_gripper_finger prefix="left_fr3_rightfinger" parent="left_fr3_rightfinger"/>
+  <xacro:soft_gripper_finger prefix="right_fr3_leftfinger" parent="right_fr3_leftfinger"/>
+  <xacro:soft_gripper_finger prefix="right_fr3_rightfinger" parent="right_fr3_rightfinger"/>
 
 </robot>
