@@ -1,16 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:macro name="soft_gripper_finger" params="prefix parent">
     <link name="${prefix}_soft_finger">
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <origin xyz="0.0129 0 0.0265134" rpy="3.1420 0 1.5708"/>
         <geometry>
           <mesh filename="package://prismatic_fr3_duo_description/meshes/soft_gripper_finger.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <origin xyz="0 0.02 0.0882134" rpy="0 0 0"/>
         <geometry>
-          <box size="0.040 0.0258 0.1234"/>
+          <box size="0.040 0.04 .1234"/>
+          <!--<cylinder length="0.04" radius="0.02"/> -->
         </geometry>
       </collision>
       <inertial>
@@ -29,7 +31,7 @@
            (closed), minus the static hand->finger translation (0, 0, 0.0584) baked into
            finger_joint1/2's origin (translation subtraction valid since both share R = I).
            rpy: mesh-to-finger-frame rotation, tuned separately from the CAD translation above. -->
-      <origin xyz="0.0129 0.0004066 0.0265134" rpy="3.1420 0 1.5521"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
     </joint>
   </xacro:macro>
 </robot>
