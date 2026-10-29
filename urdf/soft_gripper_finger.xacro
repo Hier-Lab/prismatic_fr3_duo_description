@@ -4,8 +4,8 @@
     <link name="${prefix}_soft_finger">
       <visual>
         <origin xyz="0.0129 0 0.0265134" rpy="3.1420 0 1.5708"/>
-        <geometry>
-          <mesh filename="package://prismatic_fr3_duo_description/meshes/soft_gripper_finger.stl" scale="0.001 0.001 0.001"/>
+          <geometry>
+          <mesh filename="package://prismatic_fr3_duo_description/meshes/mount+gripper.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </visual>
       <collision>
