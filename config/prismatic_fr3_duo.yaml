@@ -9,10 +9,11 @@ ee_id: franka_hand
 special_connection: ""
 xyz_ee: "0 0 0"
 rpy_ee: "0 0 -0.7853981633974483"  # -pi / 4
-tcp_xyz: "0 0 0.1034"
+# tcp_xyz: "0 0 0.1034" # w/o softfinger
+tcp_xyz: "0 0 0.195" # with softfinger
 tcp_rpy: "0 0 1.5707963267948966"  # +pi / 2 around Z
 safety_distance: 0.01
-with_sc: true
+with_sc: false
 gazebo: false
 with_accelerometers: false
 description_pkg: franka_description

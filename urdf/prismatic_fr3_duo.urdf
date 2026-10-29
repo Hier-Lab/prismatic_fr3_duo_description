@@ -71,7 +71,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link0.dae"/>
       </geometry>
     </visual>
-    <!-- <xacro:collision_capsule xyz="-0.075 0 0.06" direction="x" radius="${0.06+safety_distance}" length="0.03" /> -->
+    <collision name="left_fr3_link0_collision">
+      <geometry>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link0.stl"/>
+      </geometry>
+    </collision>
     <inertial>
       <origin rpy="0 0 0" xyz="-0.0172 0.0004 0.0745"/>
       <mass value="2.3966"/>
@@ -113,24 +117,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link1.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.1915"/>
+    <collision name="left_fr3_link1_collision">
       <geometry>
-        <cylinder length="0.42299999999999993" radius="0.06999999999999999"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link1.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="0.0000004128 -0.0181251324 -0.0386035970"/>
       <mass value="2.9274653454"/>
@@ -182,24 +173,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link2.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+    <collision name="left_fr3_link2_collision">
       <geometry>
-        <cylinder length="0.26" radius="0.06999999999999999"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link2.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="0.0031828864 -0.0743221644 0.0088146084"/>
       <mass value="2.9355370338"/>
@@ -251,24 +229,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link3.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.145"/>
+    <collision name="left_fr3_link3_collision">
       <geometry>
-        <cylinder length="0.29" radius="0.06999999999999999"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link3.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="0.0407015686 -0.0048200565 -0.0289730823"/>
       <mass value="2.2449013699"/>
@@ -320,24 +285,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link4.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+    <collision name="left_fr3_link4_collision">
       <geometry>
-        <cylinder length="0.26" radius="0.06999999999999999"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link4.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="-0.0459100965 0.0630492960 -0.0085187868"/>
       <mass value="2.6155955791"/>
@@ -389,42 +341,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link5.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.26"/>
+    <collision name="left_fr3_link5_collision">
       <geometry>
-        <cylinder length="0.24" radius="0.06999999999999999"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link5.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
-    <collision>
-      <origin rpy="0 0 0.08" xyz="0 0.08 -0.13"/>
-      <geometry>
-        <cylinder length="0.21000000000000002" radius="0.035"/>
-      </geometry>
-    </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="-0.0016039605 0.0292536262 -0.0972965990"/>
       <mass value="2.3271207594"/>
@@ -476,24 +397,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link6.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.03"/>
+    <collision name="left_fr3_link6_collision">
       <geometry>
-        <cylinder length="0.2" radius="0.060000000000000005"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link6.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="0.0597131221 -0.0410294666 -0.0101692726"/>
       <mass value="1.8170376524"/>
@@ -531,25 +439,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link7.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.01"/>
+    <collision name="left_fr3_link7_collision">
       <geometry>
-        <cylinder length="0.24000000000000002" radius="0.05"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link7.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
-    <!-- <xacro:collision_capsule xyz="0.06 0 0.082" direction="x" radius="${0.03+safety_distance}"  length="0.01" /> -->
     <inertial>
       <origin rpy="0 0 0" xyz="0.0045225817 0.0086261921 -0.0161633251"/>
       <mass value="0.6271432862"/>
@@ -598,42 +492,11 @@
         <mesh filename="package://franka_description/meshes/robot_ee/franka_hand_white/visual/hand.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="1.5707963267948966 0 0" xyz="0 0 0.04"/>
+    <collision name="left_fr3_hand_collision">
       <geometry>
-        <cylinder length="0.25" radius="0.05"/>
+        <mesh filename="package://franka_description/meshes/robot_ee/franka_hand_white/collision/hand.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
-    <collision>
-      <origin rpy="1.5707963267948966 0 0" xyz="0 0 0.1"/>
-      <geometry>
-        <cylinder length="0.19" radius="0.03"/>
-      </geometry>
-    </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="-0.0000376 0.0119128 0.0207260"/>
       <mass value="0.6544"/>
@@ -657,7 +520,7 @@
   <!-- Define the hand_tcp frame -->
   <link name="left_fr3_hand_tcp"/>
   <joint name="left_fr3_hand_tcp_joint" type="fixed">
-    <origin rpy="0 0 1.5707963267948966" xyz="0 0 0.1034"/>
+    <origin rpy="0 0 1.5707963267948966" xyz="0 0 0.195"/>
     <parent link="left_fr3_hand"/>
     <child link="left_fr3_hand_tcp"/>
   </joint>
@@ -667,6 +530,34 @@
         <mesh filename="package://franka_description/meshes/robot_ee/franka_hand_white/visual/finger.dae"/>
       </geometry>
     </visual>
+    <!-- screw mount -->
+    <collision>
+      <origin rpy="0 0 0" xyz="0 18.5e-3 11e-3"/>
+      <geometry>
+        <box size="22e-3 15e-3 20e-3"/>
+      </geometry>
+    </collision>
+    <!-- cartriage sledge -->
+    <collision>
+      <origin rpy="0 0 0" xyz="0 6.8e-3 2.2e-3"/>
+      <geometry>
+        <box size="22e-3 8.8e-3 3.8e-3"/>
+      </geometry>
+    </collision>
+    <!-- diagonal finger -->
+    <collision>
+      <origin rpy="0.5235987755982988 0 0" xyz="0 15.9e-3 28.35e-3"/>
+      <geometry>
+        <box size="17.5e-3 7e-3 23.5e-3"/>
+      </geometry>
+    </collision>
+    <!-- rubber tip with which to grasp -->
+    <collision>
+      <origin rpy="0 0 0" xyz="0 7.58e-3 45.25e-3"/>
+      <geometry>
+        <box size="17.5e-3 15.2e-3 18.5e-3"/>
+      </geometry>
+    </collision>
     <inertial>
       <origin rpy="0 0 0" xyz="0 0.0152850 0.0219675"/>
       <mass value="0.0291"/>
@@ -680,6 +571,34 @@
         <mesh filename="package://franka_description/meshes/robot_ee/franka_hand_white/visual/finger.dae"/>
       </geometry>
     </visual>
+    <!-- screw mount -->
+    <collision>
+      <origin rpy="0 0 0" xyz="0 18.5e-3 11e-3"/>
+      <geometry>
+        <box size="22e-3 15e-3 20e-3"/>
+      </geometry>
+    </collision>
+    <!-- cartriage sledge -->
+    <collision>
+      <origin rpy="0 0 0" xyz="0 6.8e-3 2.2e-3"/>
+      <geometry>
+        <box size="22e-3 8.8e-3 3.8e-3"/>
+      </geometry>
+    </collision>
+    <!-- diagonal finger -->
+    <collision>
+      <origin rpy="-0.5235987755982988 0 3.141592653589793" xyz="0 15.9e-3 28.35e-3"/>
+      <geometry>
+        <box size="17.5e-3 7e-3 23.5e-3"/>
+      </geometry>
+    </collision>
+    <!-- rubber tip with which to grasp -->
+    <collision>
+      <origin rpy="0 0 0" xyz="0 7.58e-3 45.25e-3"/>
+      <geometry>
+        <box size="17.5e-3 15.2e-3 18.5e-3"/>
+      </geometry>
+    </collision>
     <inertial>
       <origin rpy="0 0 0" xyz="0 0.0152850 0.0219675"/>
       <mass value="0.0291"/>
@@ -721,7 +640,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link0.dae"/>
       </geometry>
     </visual>
-    <!-- <xacro:collision_capsule xyz="-0.075 0 0.06" direction="x" radius="${0.06+safety_distance}" length="0.03" /> -->
+    <collision name="right_fr3_link0_collision">
+      <geometry>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link0.stl"/>
+      </geometry>
+    </collision>
     <inertial>
       <origin rpy="0 0 0" xyz="-0.0172 0.0004 0.0745"/>
       <mass value="2.3966"/>
@@ -763,24 +686,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link1.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.1915"/>
+    <collision name="right_fr3_link1_collision">
       <geometry>
-        <cylinder length="0.42299999999999993" radius="0.06999999999999999"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link1.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="0.0000004128 -0.0181251324 -0.0386035970"/>
       <mass value="2.9274653454"/>
@@ -832,24 +742,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link2.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+    <collision name="right_fr3_link2_collision">
       <geometry>
-        <cylinder length="0.26" radius="0.06999999999999999"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link2.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="0.0031828864 -0.0743221644 0.0088146084"/>
       <mass value="2.9355370338"/>
@@ -901,24 +798,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link3.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.145"/>
+    <collision name="right_fr3_link3_collision">
       <geometry>
-        <cylinder length="0.29" radius="0.06999999999999999"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link3.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="0.0407015686 -0.0048200565 -0.0289730823"/>
       <mass value="2.2449013699"/>
@@ -970,24 +854,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link4.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+    <collision name="right_fr3_link4_collision">
       <geometry>
-        <cylinder length="0.26" radius="0.06999999999999999"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link4.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="-0.0459100965 0.0630492960 -0.0085187868"/>
       <mass value="2.6155955791"/>
@@ -1039,42 +910,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link5.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.26"/>
+    <collision name="right_fr3_link5_collision">
       <geometry>
-        <cylinder length="0.24" radius="0.06999999999999999"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link5.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
-    <collision>
-      <origin rpy="0 0 0.08" xyz="0 0.08 -0.13"/>
-      <geometry>
-        <cylinder length="0.21000000000000002" radius="0.035"/>
-      </geometry>
-    </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="-0.0016039605 0.0292536262 -0.0972965990"/>
       <mass value="2.3271207594"/>
@@ -1126,24 +966,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link6.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 -0.03"/>
+    <collision name="right_fr3_link6_collision">
       <geometry>
-        <cylinder length="0.2" radius="0.060000000000000005"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link6.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="0.0597131221 -0.0410294666 -0.0101692726"/>
       <mass value="1.8170376524"/>
@@ -1181,25 +1008,11 @@
         <mesh filename="package://franka_description/meshes/robots/fr3/visual/link7.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.01"/>
+    <collision name="right_fr3_link7_collision">
       <geometry>
-        <cylinder length="0.24000000000000002" radius="0.05"/>
+        <mesh filename="package://franka_description/meshes/robots/fr3/collision/link7.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
-    <!-- <xacro:collision_capsule xyz="0.06 0 0.082" direction="x" radius="${0.03+safety_distance}"  length="0.01" /> -->
     <inertial>
       <origin rpy="0 0 0" xyz="0.0045225817 0.0086261921 -0.0161633251"/>
       <mass value="0.6271432862"/>
@@ -1248,42 +1061,11 @@
         <mesh filename="package://franka_description/meshes/robot_ee/franka_hand_white/visual/hand.dae"/>
       </geometry>
     </visual>
-    <collision>
-      <origin rpy="1.5707963267948966 0 0" xyz="0 0 0.04"/>
+    <collision name="right_fr3_hand_collision">
       <geometry>
-        <cylinder length="0.25" radius="0.05"/>
+        <mesh filename="package://franka_description/meshes/robot_ee/franka_hand_white/collision/hand.stl"/>
       </geometry>
     </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
-    <collision>
-      <origin rpy="1.5707963267948966 0 0" xyz="0 0 0.1"/>
-      <geometry>
-        <cylinder length="0.19" radius="0.03"/>
-      </geometry>
-    </collision>
-    <!-- <collision>
-      <origin xyz="${x+sx} ${y+sy} ${z+sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="${x-sx} ${y-sy} ${z-sz}" />
-      <geometry>
-        <sphere radius="${radius}" />
-      </geometry>
-    </collision> -->
     <inertial>
       <origin rpy="0 0 0" xyz="-0.0000376 0.0119128 0.0207260"/>
       <mass value="0.6544"/>
@@ -1307,7 +1089,7 @@
   <!-- Define the hand_tcp frame -->
   <link name="right_fr3_hand_tcp"/>
   <joint name="right_fr3_hand_tcp_joint" type="fixed">
-    <origin rpy="0 0 1.5707963267948966" xyz="0 0 0.1034"/>
+    <origin rpy="0 0 1.5707963267948966" xyz="0 0 0.195"/>
     <parent link="right_fr3_hand"/>
     <child link="right_fr3_hand_tcp"/>
   </joint>
@@ -1317,6 +1099,34 @@
         <mesh filename="package://franka_description/meshes/robot_ee/franka_hand_white/visual/finger.dae"/>
       </geometry>
     </visual>
+    <!-- screw mount -->
+    <collision>
+      <origin rpy="0 0 0" xyz="0 18.5e-3 11e-3"/>
+      <geometry>
+        <box size="22e-3 15e-3 20e-3"/>
+      </geometry>
+    </collision>
+    <!-- cartriage sledge -->
+    <collision>
+      <origin rpy="0 0 0" xyz="0 6.8e-3 2.2e-3"/>
+      <geometry>
+        <box size="22e-3 8.8e-3 3.8e-3"/>
+      </geometry>
+    </collision>
+    <!-- diagonal finger -->
+    <collision>
+      <origin rpy="0.5235987755982988 0 0" xyz="0 15.9e-3 28.35e-3"/>
+      <geometry>
+        <box size="17.5e-3 7e-3 23.5e-3"/>
+      </geometry>
+    </collision>
+    <!-- rubber tip with which to grasp -->
+    <collision>
+      <origin rpy="0 0 0" xyz="0 7.58e-3 45.25e-3"/>
+      <geometry>
+        <box size="17.5e-3 15.2e-3 18.5e-3"/>
+      </geometry>
+    </collision>
     <inertial>
       <origin rpy="0 0 0" xyz="0 0.0152850 0.0219675"/>
       <mass value="0.0291"/>
@@ -1330,6 +1140,34 @@
         <mesh filename="package://franka_description/meshes/robot_ee/franka_hand_white/visual/finger.dae"/>
       </geometry>
     </visual>
+    <!-- screw mount -->
+    <collision>
+      <origin rpy="0 0 0" xyz="0 18.5e-3 11e-3"/>
+      <geometry>
+        <box size="22e-3 15e-3 20e-3"/>
+      </geometry>
+    </collision>
+    <!-- cartriage sledge -->
+    <collision>
+      <origin rpy="0 0 0" xyz="0 6.8e-3 2.2e-3"/>
+      <geometry>
+        <box size="22e-3 8.8e-3 3.8e-3"/>
+      </geometry>
+    </collision>
+    <!-- diagonal finger -->
+    <collision>
+      <origin rpy="-0.5235987755982988 0 3.141592653589793" xyz="0 15.9e-3 28.35e-3"/>
+      <geometry>
+        <box size="17.5e-3 7e-3 23.5e-3"/>
+      </geometry>
+    </collision>
+    <!-- rubber tip with which to grasp -->
+    <collision>
+      <origin rpy="0 0 0" xyz="0 7.58e-3 45.25e-3"/>
+      <geometry>
+        <box size="17.5e-3 15.2e-3 18.5e-3"/>
+      </geometry>
+    </collision>
     <inertial>
       <origin rpy="0 0 0" xyz="0 0.0152850 0.0219675"/>
       <mass value="0.0291"/>
@@ -1357,5 +1195,227 @@
     <parent link="base_link"/>
     <child link="right_fr3_link0"/>
     <origin rpy="0.7853981634 0.0 0.0" xyz="0.0 -0.1 0.0333333"/>
+  </joint>
+  <link name="left_camera_mount">
+    <visual>
+      <geometry>
+        <mesh filename="package://prismatic_fr3_duo_description/meshes/d405_mount.stl" scale=".001 .001 .001"/>
+      </geometry>
+      <material name="mount_black">
+        <color rgba="0.05 0.05 0.05 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 3.14150" xyz="-0.0739 0 0.0245"/>
+      <geometry>
+        <box size="0.1178 0.060 0.0641"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0739 0 0.0245"/>
+      <mass value="0.05"/>
+      <inertia ixx="3.212004166666667e-05" ixy="0" ixz="0" iyy="7.494020833333333e-05" iyz="0" izz="7.282016666666667e-05"/>
+    </inertial>
+  </link>
+  <joint name="left_camera_mount_joint" type="fixed">
+    <parent link="left_fr3_hand"/>
+    <child link="left_camera_mount"/>
+    <origin rpy="0 0 3.141592653589793" xyz="0 0 0.008"/>
+  </joint>
+  <link name="left_d405">
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.01 0 0.023"/>
+      <geometry>
+        <mesh filename="package://prismatic_fr3_duo_description/meshes/d405.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="d405_original">
+        <color rgba="0.996078 0.996078 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.01 0 0.0115"/>
+      <geometry>
+        <box size="0.042 0.042 0.023"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.01 0 0.0115"/>
+      <mass value="0.027"/>
+      <inertia ixx="5.15925e-06" ixy="0" ixz="0" iyy="5.15925e-06" iyz="0" izz="7.938000000000001e-06"/>
+    </inertial>
+  </link>
+  <joint name="left_d405_joint" type="fixed">
+    <parent link="left_camera_mount"/>
+    <child link="left_d405"/>
+    <origin rpy="0.785398 0 1.5708" xyz="-0.125313 -0.0015 0.0360858"/>
+  </joint>
+  <link name="right_camera_mount">
+    <visual>
+      <geometry>
+        <mesh filename="package://prismatic_fr3_duo_description/meshes/d405_mount.stl" scale=".001 .001 .001"/>
+      </geometry>
+      <material name="mount_black">
+        <color rgba="0.05 0.05 0.05 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 3.14150" xyz="-0.0739 0 0.0245"/>
+      <geometry>
+        <box size="0.1178 0.060 0.0641"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0739 0 0.0245"/>
+      <mass value="0.05"/>
+      <inertia ixx="3.212004166666667e-05" ixy="0" ixz="0" iyy="7.494020833333333e-05" iyz="0" izz="7.282016666666667e-05"/>
+    </inertial>
+  </link>
+  <joint name="right_camera_mount_joint" type="fixed">
+    <parent link="right_fr3_hand"/>
+    <child link="right_camera_mount"/>
+    <origin rpy="0 0 3.141592653589793" xyz="0 0 0.008"/>
+  </joint>
+  <link name="right_d405">
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.01 0 0.023"/>
+      <geometry>
+        <mesh filename="package://prismatic_fr3_duo_description/meshes/d405.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="d405_original">
+        <color rgba="0.996078 0.996078 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.01 0 0.0115"/>
+      <geometry>
+        <box size="0.042 0.042 0.023"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.01 0 0.0115"/>
+      <mass value="0.027"/>
+      <inertia ixx="5.15925e-06" ixy="0" ixz="0" iyy="5.15925e-06" iyz="0" izz="7.938000000000001e-06"/>
+    </inertial>
+  </link>
+  <joint name="right_d405_joint" type="fixed">
+    <parent link="right_camera_mount"/>
+    <child link="right_d405"/>
+    <origin rpy="0.785398 0 1.5708" xyz="-0.125313 -0.0015 0.0360858"/>
+  </joint>
+  <link name="left_fr3_leftfinger_soft_finger">
+    <visual>
+      <origin rpy="3.1420 0 1.5708" xyz="0.0129 0 0.0265134"/>
+      <geometry>
+        <mesh filename="package://prismatic_fr3_duo_description/meshes/mount_gripper.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0.02 0.0882134"/>
+      <geometry>
+        <box size="0.040 0.04 .1234"/>
+        <!--<cylinder length="0.04" radius="0.02"/> -->
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.02"/>
+      <inertia ixx="2.648866666666667e-05" ixy="0" ixz="0" iyy="2.8045933333333332e-05" iyz="0" izz="3.776066666666667e-06"/>
+    </inertial>
+  </link>
+  <joint name="left_fr3_leftfinger_soft_finger_joint" type="fixed">
+    <parent link="left_fr3_leftfinger"/>
+    <child link="left_fr3_leftfinger_soft_finger"/>
+    <!-- xyz: CAD T_hand_to_soft_gripper (0.0, 0.0004066, 0.0849134), measured at finger joints = 0
+           (closed), minus the static hand->finger translation (0, 0, 0.0584) baked into
+           finger_joint1/2's origin (translation subtraction valid since both share R = I).
+           rpy: mesh-to-finger-frame rotation, tuned separately from the CAD translation above. -->
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <link name="left_fr3_rightfinger_soft_finger">
+    <visual>
+      <origin rpy="3.1420 0 1.5708" xyz="0.0129 0 0.0265134"/>
+      <geometry>
+        <mesh filename="package://prismatic_fr3_duo_description/meshes/mount_gripper.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0.02 0.0882134"/>
+      <geometry>
+        <box size="0.040 0.04 .1234"/>
+        <!--<cylinder length="0.04" radius="0.02"/> -->
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.02"/>
+      <inertia ixx="2.648866666666667e-05" ixy="0" ixz="0" iyy="2.8045933333333332e-05" iyz="0" izz="3.776066666666667e-06"/>
+    </inertial>
+  </link>
+  <joint name="left_fr3_rightfinger_soft_finger_joint" type="fixed">
+    <parent link="left_fr3_rightfinger"/>
+    <child link="left_fr3_rightfinger_soft_finger"/>
+    <!-- xyz: CAD T_hand_to_soft_gripper (0.0, 0.0004066, 0.0849134), measured at finger joints = 0
+           (closed), minus the static hand->finger translation (0, 0, 0.0584) baked into
+           finger_joint1/2's origin (translation subtraction valid since both share R = I).
+           rpy: mesh-to-finger-frame rotation, tuned separately from the CAD translation above. -->
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <link name="right_fr3_leftfinger_soft_finger">
+    <visual>
+      <origin rpy="3.1420 0 1.5708" xyz="0.0129 0 0.0265134"/>
+      <geometry>
+        <mesh filename="package://prismatic_fr3_duo_description/meshes/mount_gripper.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0.02 0.0882134"/>
+      <geometry>
+        <box size="0.040 0.04 .1234"/>
+        <!--<cylinder length="0.04" radius="0.02"/> -->
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.02"/>
+      <inertia ixx="2.648866666666667e-05" ixy="0" ixz="0" iyy="2.8045933333333332e-05" iyz="0" izz="3.776066666666667e-06"/>
+    </inertial>
+  </link>
+  <joint name="right_fr3_leftfinger_soft_finger_joint" type="fixed">
+    <parent link="right_fr3_leftfinger"/>
+    <child link="right_fr3_leftfinger_soft_finger"/>
+    <!-- xyz: CAD T_hand_to_soft_gripper (0.0, 0.0004066, 0.0849134), measured at finger joints = 0
+           (closed), minus the static hand->finger translation (0, 0, 0.0584) baked into
+           finger_joint1/2's origin (translation subtraction valid since both share R = I).
+           rpy: mesh-to-finger-frame rotation, tuned separately from the CAD translation above. -->
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+  <link name="right_fr3_rightfinger_soft_finger">
+    <visual>
+      <origin rpy="3.1420 0 1.5708" xyz="0.0129 0 0.0265134"/>
+      <geometry>
+        <mesh filename="package://prismatic_fr3_duo_description/meshes/mount_gripper.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0.02 0.0882134"/>
+      <geometry>
+        <box size="0.040 0.04 .1234"/>
+        <!--<cylinder length="0.04" radius="0.02"/> -->
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.02"/>
+      <inertia ixx="2.648866666666667e-05" ixy="0" ixz="0" iyy="2.8045933333333332e-05" iyz="0" izz="3.776066666666667e-06"/>
+    </inertial>
+  </link>
+  <joint name="right_fr3_rightfinger_soft_finger_joint" type="fixed">
+    <parent link="right_fr3_rightfinger"/>
+    <child link="right_fr3_rightfinger_soft_finger"/>
+    <!-- xyz: CAD T_hand_to_soft_gripper (0.0, 0.0004066, 0.0849134), measured at finger joints = 0
+           (closed), minus the static hand->finger translation (0, 0, 0.0584) baked into
+           finger_joint1/2's origin (translation subtraction valid since both share R = I).
+           rpy: mesh-to-finger-frame rotation, tuned separately from the CAD translation above. -->
+    <origin rpy="0 0 0" xyz="0 0 0"/>
   </joint>
 </robot>
